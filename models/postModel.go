@@ -1,11 +1,11 @@
-package main
+package models
 
 import "gorm.io/gorm"
 
 type Book struct {
 	gorm.Model
-	Id          string
-	Name        string
+	ID          uint
+	Title       string
 	Description string
-	Price       string
+	Cost        uint
 }
