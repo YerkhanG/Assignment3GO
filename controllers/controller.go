@@ -72,6 +72,19 @@ func BooksDelete(c *gin.Context) {
 
 	c.Status(200)
 }
-func BooksSort(c *gin.Context) {
+func BooksSortAsc(c *gin.Context) {
+	var books []models.Book
+	Init.DB.Order("cost asc").Find(&books)
 
+	c.JSON(200, gin.H{
+		"books": books,
+	})
+}
+func BooksSortDesc(c *gin.Context) {
+	var books []models.Book
+	Init.DB.Order("cost desc").Find(&books)
+
+	c.JSON(200, gin.H{
+		"books": books,
+	})
 }
